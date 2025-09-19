@@ -1,0 +1,42 @@
+.footer {
+  background: #2c3e50;
+  color: white;
+  padding: 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  margin-bottom: 2rem;
+}
+
+.brand-name {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-description {
+  color: #bdc3c7;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  border-top: 1px solid #34495e;
+  padding-top: 1.5rem;
+}
+
+.footer-bottom p {
+  color: #bdc3c7;
+  margin: 0;
+  font-size: 0.9rem;
+}

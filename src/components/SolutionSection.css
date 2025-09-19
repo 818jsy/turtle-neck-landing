@@ -1,0 +1,83 @@
+.solution-section {
+  background: #ffffff;
+  padding: 0;
+}
+
+.solution-header {
+  margin-bottom: 0;
+}
+
+.header-background {
+  position: relative;
+  width: 100vw;
+  height: auto;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(30%) brightness(0.7);
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  max-width: 800px;
+  width: 100%;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  opacity: 1;
+}
+
+
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .header-background {
+    height: auto;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .header-overlay {
+    padding: 1.5rem;
+  }
+  
+}
