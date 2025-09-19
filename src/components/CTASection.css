@@ -23,11 +23,19 @@
 }
 
 .cta-title {
-  font-size: 2.7rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: white;
   margin-bottom: 2rem;
-  line-height: 1.2;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cta-line {
+  margin: 0;
+  padding: 0;
 }
 
 .cta-title .highlight {
@@ -79,7 +87,9 @@
   }
   
   .cta-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    line-height: 1.5;
+    gap: 0.5rem;
   }
   
   .cta-button {

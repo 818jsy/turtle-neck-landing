@@ -9,20 +9,31 @@
   margin: 0 auto;
   padding: 40px 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer-content {
   margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
 }
 
 .brand-name {
   font-size: 2rem;
   font-weight: 800;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem auto;
   background: linear-gradient(45deg, #f1c40f, #f39c12);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .brand-description {
@@ -33,6 +44,8 @@
 .footer-bottom {
   border-top: 1px solid #444;
   padding-top: 1.5rem;
+  text-align: center;
+  width: 100%;
 }
 
 .footer-bottom p {

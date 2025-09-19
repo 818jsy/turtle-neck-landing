@@ -14,9 +14,8 @@ const CTASection: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 className="cta-title">
-            이제 더 이상 자세 걱정 없이
-            <br />
-            <span className="highlight">스마트한 센서가 당신의 건강한 자세를 지켜드립니다</span>
+            <div className="cta-line">이제 더 이상 자세 걱정 없이</div>
+            <div className="cta-line highlight">스마트한 센서가 당신의 건강한 자세를 지켜드립니다</div>
           </h2>
           
           <motion.button
