@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { AlertTriangle, Laptop, Smartphone } from 'lucide-react';
-import badPostureImage from '../assets/bad.png';
-import goodPostureImage from '../assets/good.png';
+import badPostureImage from '../assets/posture-bad.png';
+import goodPostureImage from '../assets/posture-good.png';
 import './ProblemSection.css';
 
 const ProblemSection: React.FC = () => {
