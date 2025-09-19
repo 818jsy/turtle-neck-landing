@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Zap } from 'lucide-react';
+import { Bell, Zap } from 'lucide-react';
 import productImage from '../assets/u7477858176_A_modern_wearable_posture_correction_device_sleek_5d2ee56f-e104-4626-815e-62601401886c_2.png';
 import './HeroSection.css';
 
@@ -68,7 +68,7 @@ const HeroSection: React.FC = () => {
                     ease: "easeInOut"
                   }}
                 >
-                  <Shield className="sensor-icon" />
+                  <Bell className="sensor-icon" />
                 </motion.div>
               </div>
             </div>

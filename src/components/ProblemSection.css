@@ -1,11 +1,44 @@
 .problem-section {
-  background: #f8f9fa;
+  background: #1a1a1a;
   padding: 0;
 }
 
 .problem-header {
   text-align: center;
   margin-bottom: 4rem;
+}
+
+.problem-header .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.problem-header .section-title .highlight {
+  color: #f1c40f;
+  font-weight: 800;
+}
+
+.problem-header .section-subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.problem-header .section-subtitle .emphasis {
+  color: #f1c40f;
+  font-weight: 600;
+}
+
+.problem-header .section-subtitle .warning {
+  color: #f1c40f;
+  font-weight: 700;
 }
 
 .problem-stats {
@@ -16,12 +49,13 @@
 }
 
 .stat-card {
-  background: white;
+  background: #2d2d2d;
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
   text-align: center;
   transition: transform 0.3s ease;
+  border: 1px solid #444;
 }
 
 .stat-card:hover {
@@ -31,13 +65,13 @@
 .stat-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  background: linear-gradient(135deg, #f1c40f, #f39c12);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1rem;
-  color: white;
+  color: #1a1a1a;
 }
 
 .stat-icon svg {
@@ -48,12 +82,12 @@
 .stat-number {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: #f1c40f;
   margin-bottom: 0.5rem;
 }
 
 .stat-label {
-  color: #666;
+  color: #ccc;
   font-size: 0.9rem;
 }
 
@@ -71,11 +105,12 @@
 }
 
 .posture-card {
-  background: white;
+  background: #2d2d2d;
   border-radius: 20px;
   padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
+  border: 1px solid #444;
 }
 
 .posture-card:hover {
@@ -100,7 +135,7 @@
 .posture-header h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: #fff;
 }
 
 .warning-badge {
@@ -147,14 +182,23 @@
   line-height: 1.6;
 }
 
+.symptoms-grid,
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
 .symptom {
   color: #e74c3c;
   margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
 .benefit {
   color: #27ae60;
   margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
 .vs-divider {
@@ -164,8 +208,8 @@
 }
 
 .vs-text {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
+  background: linear-gradient(135deg, #f1c40f, #f39c12);
+  color: #1a1a1a;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -174,7 +218,7 @@
   justify-content: center;
   font-weight: 700;
   font-size: 1.2rem;
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 5px 15px rgba(241, 196, 15, 0.3);
 }
 
 .problem-cta {
@@ -186,11 +230,11 @@
 .cta-text {
   font-size: 1.2rem;
   line-height: 1.8;
-  color: #2c3e50;
+  color: #fff;
 }
 
 .cta-text strong {
-  color: #667eea;
+  color: #f1c40f;
   font-weight: 700;
 }
 
@@ -211,5 +255,11 @@
   
   .problem-stats {
     grid-template-columns: 1fr;
+  }
+  
+  .symptoms-grid,
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
   }
 }

@@ -1,5 +1,5 @@
 .footer {
-  background: #2c3e50;
+  background: #1a1a1a;
   color: white;
   padding: 0;
 }
@@ -7,7 +7,7 @@
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 40px 2rem;
   text-align: center;
 }
 
@@ -19,24 +19,24 @@
   font-size: 2rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  background: linear-gradient(45deg, #f1c40f, #f39c12);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .brand-description {
-  color: #bdc3c7;
+  color: #ccc;
   line-height: 1.6;
 }
 
 .footer-bottom {
-  border-top: 1px solid #34495e;
+  border-top: 1px solid #444;
   padding-top: 1.5rem;
 }
 
 .footer-bottom p {
-  color: #bdc3c7;
+  color: #ccc;
   margin: 0;
   font-size: 0.9rem;
 }

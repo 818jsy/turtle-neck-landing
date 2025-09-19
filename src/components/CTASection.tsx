@@ -24,7 +24,7 @@ const CTASection: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            지금 바로 시작하기
+            지금 바로 예약하기
           </motion.button>
         </motion.div>
       </div>

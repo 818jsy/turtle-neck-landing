@@ -16,11 +16,15 @@ const ProblemSection: React.FC = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title">현대인의 고질병, 거북목과 라운드 숄더</h2>
+          <h2 className="section-title">
+            현대인의 고질병, 거북목과 라운드 숄더
+          </h2>
           <p className="section-subtitle">
-            장시간 스마트폰, 노트북 사용으로 거북목과 라운드 숄더는 현대인의 고질병이 되었습니다.
+            장시간 스마트폰, 노트북 사용으로 <span className="emphasis">거북목과 라운드 숄더</span>는 
             <br />
-            이는 단순 불편을 넘어, 목디스크·두통·피로로 이어집니다.
+            현대인의 고질병이 되었습니다.
+            <br />
+            이는 단순 불편을 넘어, <span className="warning">목디스크·두통·피로</span>로 이어집니다.
           </p>
         </motion.div>
 
@@ -89,10 +93,12 @@ const ProblemSection: React.FC = () => {
                 />
               </div>
               <div className="posture-symptoms">
-                <div className="symptom">• 목과 어깨 통증</div>
-                <div className="symptom">• 두통과 어지러움</div>
-                <div className="symptom">• 목디스크 위험</div>
-                <div className="symptom">• 피로감 증가</div>
+                <div className="symptoms-grid">
+                  <div className="symptom">• 목과 어깨 통증</div>
+                  <div className="symptom">• 두통과 어지러움</div>
+                  <div className="symptom">• 목디스크 위험</div>
+                  <div className="symptom">• 피로감 증가</div>
+                </div>
               </div>
             </div>
 
@@ -113,10 +119,12 @@ const ProblemSection: React.FC = () => {
                 />
               </div>
               <div className="posture-benefits">
-                <div className="benefit">• 자연스러운 곡선</div>
-                <div className="benefit">• 근육 긴장 완화</div>
-                <div className="benefit">• 집중력 향상</div>
-                <div className="benefit">• 에너지 효율성</div>
+                <div className="benefits-grid">
+                  <div className="benefit">• 자연스러운 곡선</div>
+                  <div className="benefit">• 근육 긴장 완화</div>
+                  <div className="benefit">• 집중력 향상</div>
+                  <div className="benefit">• 에너지 효율성</div>
+                </div>
               </div>
             </div>
           </motion.div>

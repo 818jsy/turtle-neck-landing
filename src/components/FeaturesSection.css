@@ -1,5 +1,5 @@
 .features-section {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
   padding: 0;
 }
 
@@ -12,23 +12,23 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 0;
 }
 
 .feature-card {
-  background: white;
+  background: #2d2d2d;
   border-radius: 20px;
   padding: 2.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
-  border: 1px solid rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(241, 196, 15, 0.2);
 }
 
 .feature-card:hover {
-  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
-  border-color: rgba(102, 126, 234, 0.3);
+  box-shadow: 0 20px 40px rgba(241, 196, 15, 0.2);
+  border-color: rgba(241, 196, 15, 0.4);
 }
 
 .feature-card::before {
@@ -38,7 +38,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: linear-gradient(90deg, #f1c40f, #f39c12);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -56,12 +56,12 @@
 .feature-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #1a1a1a;
   position: relative;
   z-index: 2;
   transition: transform 0.3s ease;
@@ -83,7 +83,7 @@
   transform: translate(-50%, -50%);
   width: 100px;
   height: 100px;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+  background: linear-gradient(135deg, rgba(241, 196, 15, 0.3), rgba(243, 156, 18, 0.3));
   border-radius: 50%;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -100,19 +100,19 @@
 .feature-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: #fff;
   margin-bottom: 0.5rem;
 }
 
 .feature-description {
   font-size: 1.1rem;
-  color: #667eea;
+  color: #f1c40f;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
 .feature-detail {
-  color: #666;
+  color: #ccc;
   line-height: 1.6;
   font-size: 0.95rem;
 }
@@ -123,13 +123,13 @@
   right: 1.5rem;
   width: 40px;
   height: 40px;
-  background: rgba(102, 126, 234, 0.1);
+  background: rgba(241, 196, 15, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  color: #667eea;
+  color: #f1c40f;
   font-size: 0.9rem;
 }
 
