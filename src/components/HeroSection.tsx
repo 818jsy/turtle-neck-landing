@@ -5,7 +5,11 @@ import productImage from '../assets/product-hero.png';
 import logoImage from '../assets/logo.png';
 import './HeroSection.css';
 
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  onCTAClick: () => void;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ onCTAClick }) => {
   return (
     <section className="hero-section">
       <div className="hero-header">
@@ -45,6 +49,7 @@ const HeroSection: React.FC = () => {
             <div className="hero-buttons">
               <motion.button
                 className="cta-button primary"
+                onClick={onCTAClick}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -52,6 +57,7 @@ const HeroSection: React.FC = () => {
               </motion.button>
               <motion.button
                 className="cta-button secondary"
+                onClick={onCTAClick}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

@@ -1,0 +1,260 @@
+.form-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: white;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.back-button {
+  background: transparent;
+  border: 2px solid #f1c40f;
+  color: #f1c40f;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.back-button:hover {
+  background: #f1c40f;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+.back-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.form-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 2rem 0 1rem 0;
+  background: linear-gradient(45deg, #f1c40f, #f39c12);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form-header p {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin: 0;
+}
+
+.preorder-form {
+  background: #2d2d2d;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #444;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  width: 20px;
+  height: 20px;
+  color: #f1c40f;
+  z-index: 2;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid #444;
+  border-radius: 12px;
+  background: #1a1a1a;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-container input:focus {
+  outline: none;
+  border-color: #f1c40f;
+  box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.1);
+}
+
+.input-container input::placeholder {
+  color: #666;
+}
+
+.contact-type-selector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-type-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 2px solid #444;
+  border-radius: 12px;
+  background: #1a1a1a;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.contact-type-btn:hover {
+  border-color: #f1c40f;
+  color: #f1c40f;
+}
+
+.contact-type-btn.active {
+  border-color: #f1c40f;
+  background: linear-gradient(135deg, rgba(241, 196, 15, 0.1), rgba(243, 156, 18, 0.1));
+  color: #f1c40f;
+}
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.submit-button {
+  width: 100%;
+  background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+  color: #1a1a1a;
+  border: none;
+  padding: 1.2rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 10px 30px rgba(241, 196, 15, 0.3);
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(241, 196, 15, 0.4);
+}
+
+.honeypot {
+  display: none;
+}
+
+.success-message {
+  text-align: center;
+  background: #2d2d2d;
+  padding: 4rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid #444;
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #f1c40f, #f39c12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+.success-message h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f1c40f;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.success-message p {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 1rem;
+  }
+  
+  .form-header h1 {
+    font-size: 2rem;
+  }
+  
+  .preorder-form {
+    padding: 2rem;
+  }
+  
+  .back-button {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-type-selector {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .contact-type-btn {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .form-header {
+    margin-bottom: 2rem;
+  }
+}

@@ -2,7 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './CTASection.css';
 
-const CTASection: React.FC = () => {
+interface CTASectionProps {
+  onCTAClick: () => void;
+}
+
+const CTASection: React.FC<CTASectionProps> = ({ onCTAClick }) => {
   return (
     <section className="cta-section">
       <div className="section">
@@ -20,6 +24,7 @@ const CTASection: React.FC = () => {
           
           <motion.button
             className="cta-button"
+            onClick={onCTAClick}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
