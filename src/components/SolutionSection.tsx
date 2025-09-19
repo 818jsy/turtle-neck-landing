@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Activity, Bell, Smartphone, BarChart3, Shield, Zap } from 'lucide-react';
 import backgroundImage from '../assets/background.png';
 import './SolutionSection.css';
 

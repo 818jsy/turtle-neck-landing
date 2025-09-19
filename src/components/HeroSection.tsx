@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Bell, Zap } from 'lucide-react';
+import { Bell } from 'lucide-react';
 import productImage from '../assets/product-hero.png';
 import logoImage from '../assets/logo.png';
 import './HeroSection.css';
