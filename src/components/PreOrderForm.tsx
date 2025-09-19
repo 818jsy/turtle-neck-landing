@@ -11,7 +11,7 @@ const PreOrderForm: React.FC<PreOrderFormProps> = ({ onBack }) => {
   const [formData, setFormData] = useState({
     email: '',
     phone: '',
-    name: '',
+    nickname: '',
     contactType: 'email' // 'email' or 'phone'
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -95,18 +95,19 @@ const PreOrderForm: React.FC<PreOrderFormProps> = ({ onBack }) => {
         <div className="honeypot">
           <input name="bot-field" />
         </div>
+        <input type="hidden" name="nickname" value={formData.nickname} />
 
         <div className="form-group">
-          <label htmlFor="name">이름</label>
+          <label htmlFor="nickname">별명</label>
           <div className="input-container">
             <User className="input-icon" />
             <input
               type="text"
-              id="name"
-              name="name"
-              value={formData.name}
+              id="nickname"
+              name="nickname"
+              value={formData.nickname}
               onChange={handleInputChange}
-              placeholder="홍길동"
+              placeholder="닉네임을 입력해주세요"
               required
             />
           </div>
