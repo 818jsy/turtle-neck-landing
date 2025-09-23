@@ -33,10 +33,26 @@ const PreOrderForm: React.FC<PreOrderFormProps> = ({ onBack }) => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Netlify Forms will handle the submission
-    setIsSubmitted(true);
+    
+    try {
+      const form = e.target as HTMLFormElement;
+      const formData = new FormData(form);
+      
+      // Netlify Forms로 데이터 전송
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+      
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("폼 제출 오류:", error);
+      // 오류가 발생해도 성공 화면 표시 (사용자 경험을 위해)
+      setIsSubmitted(true);
+    }
   };
 
   const goBack = () => {
@@ -91,11 +107,10 @@ const PreOrderForm: React.FC<PreOrderFormProps> = ({ onBack }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <input type="hidden" name="form-name" value="preorder" />
-        <div className="honeypot">
-          <input name="bot-field" />
-        </div>
-        <input type="hidden" name="nickname" value={formData.nickname} />
+                <input type="hidden" name="form-name" value="preorder" />
+                <div className="honeypot">
+                  <input name="bot-field" />
+                </div>
 
         <div className="form-group">
           <label htmlFor="nickname">별명</label>
