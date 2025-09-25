@@ -60,8 +60,8 @@ const PreOrderForm: React.FC<PreOrderFormProps> = ({ onBack }) => {
       // 백엔드 API로 사전 주문 데이터 전송
       const success = await analytics.submitPreOrder({
         nickname: formData.nickname,
-        email: contactType === 'email' ? formData.email : '',
-        phoneNumber: contactType === 'phone' ? formData.phoneNumber : ''
+        email: contactType === 'email' ? formData.email : '.',
+        phoneNumber: contactType === 'phone' ? formData.phoneNumber : '.'
       });
 
       if (success) {

@@ -9,8 +9,8 @@ interface AnalyticsData {
 
 interface PreOrderData {
   nickname: string;
-  phoneNumber?: string;
-  email?: string;
+  phoneNumber?: string | undefined;
+  email?: string | undefined;
 }
 
 class AnalyticsService {
@@ -130,8 +130,8 @@ class AnalyticsService {
         },
         body: JSON.stringify({
           nickname: data.nickname,
-          phoneNumber: data.phoneNumber || '',
-          email: data.email || '',
+          phoneNumber: data.phoneNumber || '.',
+          email: data.email || '.',
           timestamp: new Date().toISOString(),
         }),
       });
