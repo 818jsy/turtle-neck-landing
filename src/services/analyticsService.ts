@@ -9,9 +9,8 @@ interface AnalyticsData {
 
 interface PreOrderData {
   nickname: string;
+  phoneNumber?: string;
   email?: string;
-  phone?: string;
-  contactType: 'email' | 'phone';
 }
 
 class AnalyticsService {
@@ -59,53 +58,80 @@ class AnalyticsService {
     this.analyticsData.mainPageVisitCount++;
     this.analyticsData.timestamp = new Date().toISOString();
     this.saveToLocalStorage();
-    this.sendAnalyticsToBackend();
+    this.sendPageViewToBackend();
   }
 
   public trackCTAClick(): void {
     this.analyticsData.ctaClickCount++;
     this.analyticsData.timestamp = new Date().toISOString();
     this.saveToLocalStorage();
-    this.sendAnalyticsToBackend();
+    this.sendCTAClickToBackend();
   }
 
   public trackFormSubmission(): void {
     this.analyticsData.formSubmissionCount++;
     this.analyticsData.timestamp = new Date().toISOString();
     this.saveToLocalStorage();
-    this.sendAnalyticsToBackend();
+    // 폼 제출은 별도 API로 처리되므로 여기서는 로컬 저장만
   }
 
-  private async sendAnalyticsToBackend(): Promise<void> {
+  private async sendPageViewToBackend(): Promise<void> {
     try {
-      const response = await fetch(`${API_BASE_URL}/analytics`, {
+      const response = await fetch(`${API_BASE_URL}/analytics/page-view`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(this.analyticsData),
+        body: JSON.stringify({
+          pageUrl: window.location.href,
+          referrer: document.referrer || ''
+        }),
       });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      console.log('분석 데이터가 성공적으로 전송되었습니다.');
+      console.log('페이지 방문 데이터가 성공적으로 전송되었습니다.');
     } catch (error) {
-      console.error('분석 데이터 전송 실패:', error);
-      // 네트워크 오류 시에도 로컬에 저장된 데이터는 유지
+      console.error('페이지 방문 데이터 전송 실패:', error);
     }
   }
 
-  public async submitPreOrder(data: PreOrderData): Promise<boolean> {
+  private async sendCTAClickToBackend(): Promise<void> {
     try {
-      const response = await fetch(`${API_BASE_URL}/preorder`, {
+      const response = await fetch(`${API_BASE_URL}/analytics/cta-click`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          ...data,
+          ctaId: 'main-cta',
+          pageUrl: window.location.href
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      console.log('CTA 클릭 데이터가 성공적으로 전송되었습니다.');
+    } catch (error) {
+      console.error('CTA 클릭 데이터 전송 실패:', error);
+    }
+  }
+
+  public async submitPreOrder(data: PreOrderData): Promise<boolean> {
+    try {
+      const response = await fetch(`${API_BASE_URL}/forms/submit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nickname: data.nickname,
+          phoneNumber: data.phoneNumber || '',
+          email: data.email || '',
           timestamp: new Date().toISOString(),
         }),
       });
@@ -125,6 +151,28 @@ class AnalyticsService {
 
   public getAnalyticsData(): AnalyticsData {
     return { ...this.analyticsData };
+  }
+
+  public async getAnalyticsStats(): Promise<any> {
+    try {
+      const response = await fetch(`${API_BASE_URL}/analytics/stats`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const stats = await response.json();
+      console.log('분석 통계 데이터를 성공적으로 조회했습니다:', stats);
+      return stats;
+    } catch (error) {
+      console.error('분석 통계 데이터 조회 실패:', error);
+      return null;
+    }
   }
 }
 
