@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Mail, Phone, User } from 'lucide-react';
 import './PreOrderForm.css';
+import AnalyticsService from '../services/analyticsService';
 
 interface PreOrderFormProps {
   onBack: () => void;
@@ -37,17 +38,31 @@ const PreOrderForm: React.FC<PreOrderFormProps> = ({ onBack }) => {
     e.preventDefault();
     
     try {
-      const form = e.target as HTMLFormElement;
-      const formData = new FormData(form);
+      const analytics = AnalyticsService.getInstance();
       
-      // Netlify Forms로 데이터 전송
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
+      // 백엔드 API로 사전 주문 데이터 전송
+      const success = await analytics.submitPreOrder({
+        nickname: formData.nickname,
+        email: formData.contactType === 'email' ? formData.email : undefined,
+        phone: formData.contactType === 'phone' ? formData.phone : undefined,
+        contactType: formData.contactType as 'email' | 'phone'
       });
-      
-      setIsSubmitted(true);
+
+      if (success) {
+        setIsSubmitted(true);
+      } else {
+        // 백엔드 전송 실패 시 Netlify Forms로 폴백
+        const form = e.target as HTMLFormElement;
+        const formDataObj = new FormData(form);
+        
+        await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formDataObj as any).toString(),
+        });
+        
+        setIsSubmitted(true);
+      }
     } catch (error) {
       console.error("폼 제출 오류:", error);
       // 오류가 발생해도 성공 화면 표시 (사용자 경험을 위해)

@@ -7,6 +7,7 @@ import FeaturesSection from './components/FeaturesSection';
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
 import PreOrderForm from './components/PreOrderForm';
+import AnalyticsService from './services/analyticsService';
 
 function App() {
   const [showForm, setShowForm] = useState(false);
@@ -41,7 +42,18 @@ function App() {
     loadResources();
   }, []);
 
+  useEffect(() => {
+    // 메인페이지 접속 시 분석 데이터 추적
+    if (!isLoading && !showForm) {
+      const analytics = AnalyticsService.getInstance();
+      analytics.trackPageVisit();
+    }
+  }, [isLoading, showForm]);
+
   const handleCTAClick = () => {
+    // CTA 버튼 클릭 추적
+    const analytics = AnalyticsService.getInstance();
+    analytics.trackCTAClick();
     setShowForm(true);
   };
 
