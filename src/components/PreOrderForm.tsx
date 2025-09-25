@@ -14,6 +14,7 @@ const PreOrderForm: React.FC<PreOrderFormProps> = ({ onBack }) => {
     phoneNumber: '',
     nickname: ''
   });
+  const [contactType, setContactType] = useState<'email' | 'phone'>('email');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,10 +25,34 @@ const PreOrderForm: React.FC<PreOrderFormProps> = ({ onBack }) => {
     }));
   };
 
-  // contactType 관련 함수 제거 (모든 필드가 필수이므로)
+  const handleContactTypeChange = (type: 'email' | 'phone') => {
+    setContactType(type);
+    // 연락처 타입 변경 시 다른 필드 초기화
+    setFormData(prev => ({
+      ...prev,
+      email: type === 'email' ? prev.email : '',
+      phoneNumber: type === 'phone' ? prev.phoneNumber : ''
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // 필수 필드 검증
+    if (!formData.nickname.trim()) {
+      alert('별명을 입력해주세요.');
+      return;
+    }
+    
+    if (contactType === 'email' && !formData.email.trim()) {
+      alert('이메일을 입력해주세요.');
+      return;
+    }
+    
+    if (contactType === 'phone' && !formData.phoneNumber.trim()) {
+      alert('전화번호를 입력해주세요.');
+      return;
+    }
     
     try {
       const analytics = AnalyticsService.getInstance();
@@ -35,8 +60,8 @@ const PreOrderForm: React.FC<PreOrderFormProps> = ({ onBack }) => {
       // 백엔드 API로 사전 주문 데이터 전송
       const success = await analytics.submitPreOrder({
         nickname: formData.nickname,
-        email: formData.email || undefined,
-        phoneNumber: formData.phoneNumber || undefined
+        email: contactType === 'email' ? formData.email : '',
+        phoneNumber: contactType === 'phone' ? formData.phoneNumber : ''
       });
 
       if (success) {
@@ -129,39 +154,68 @@ const PreOrderForm: React.FC<PreOrderFormProps> = ({ onBack }) => {
               value={formData.nickname}
               onChange={handleInputChange}
               placeholder="닉네임을 입력해주세요"
+              required
             />
           </div>
         </div>
 
         <div className="form-group">
-          <label htmlFor="email">이메일</label>
-          <div className="input-container">
-            <Mail className="input-icon" />
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="example@email.com"
-            />
+          <label>연락처 선택</label>
+          <div className="contact-type-selector">
+            <button
+              type="button"
+              className={`contact-type-btn ${contactType === 'email' ? 'active' : ''}`}
+              onClick={() => handleContactTypeChange('email')}
+            >
+              <Mail className="btn-icon" />
+              이메일
+            </button>
+            <button
+              type="button"
+              className={`contact-type-btn ${contactType === 'phone' ? 'active' : ''}`}
+              onClick={() => handleContactTypeChange('phone')}
+            >
+              <Phone className="btn-icon" />
+              전화번호
+            </button>
           </div>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="phoneNumber">전화번호</label>
-          <div className="input-container">
-            <Phone className="input-icon" />
-            <input
-              type="tel"
-              id="phoneNumber"
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={handleInputChange}
-              placeholder="010-1234-5678"
-            />
+        {contactType === 'email' && (
+          <div className="form-group">
+            <label htmlFor="email">이메일</label>
+            <div className="input-container">
+              <Mail className="input-icon" />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="example@email.com"
+                required
+              />
+            </div>
           </div>
-        </div>
+        )}
+
+        {contactType === 'phone' && (
+          <div className="form-group">
+            <label htmlFor="phoneNumber">전화번호</label>
+            <div className="input-container">
+              <Phone className="input-icon" />
+              <input
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleInputChange}
+                placeholder="010-1234-5678"
+                required
+              />
+            </div>
+          </div>
+        )}
 
         <motion.button
           type="submit"
